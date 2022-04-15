@@ -1,0 +1,16 @@
+.header {
+  display: flex;
+}
+.header__nav {
+  padding-left: 46px;
+  margin-right: 46px;
+}
+.header__logo {
+  margin-left: auto;
+  background-color: $color-red;
+  line-height: 0;
+  padding-top: 14px;
+  padding-bottom: 14px;
+  padding-right: 46px;
+  padding-left: 136px;
+}

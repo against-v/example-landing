@@ -1,6 +1,6 @@
 import Abstract from "./abstract";
 
-const createHeaderTemplate = () => `<section>team</header>`;
+const createHeaderTemplate = () => `<section class="team"></section>`;
 
 export default class Team extends Abstract {
   getTemplate() {

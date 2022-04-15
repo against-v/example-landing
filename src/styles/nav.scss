@@ -1,0 +1,23 @@
+.nav {
+  display: flex;
+  align-items: center;
+}
+.nav__item {
+  color: $color-black;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-decoration: none;
+  margin-left: 22px;
+  margin-right: 22px;
+  transition: color 200ms linear;
+  white-space: nowrap;
+  &:first-child {
+    margin-left: 0;
+  }
+  &:last-child {
+    margin-right: 0;
+  }
+  &:hover {
+    color: $color-red;
+  }
+}
