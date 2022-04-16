@@ -23,7 +23,7 @@ const LINKS = [
 const createHeaderTemplate = () => (
   `<header class="header">
     <nav class="header__nav nav">
-      ${LINKS.map(item => `<a class="nav__item" href="${item.url}">${item.label}</a>`).join(``)}
+      ${LINKS.map(item => `<a class="nav__item" href="${item.url}">${item.label}</a>`).join("")}
     </nav>
     <div class="header__logo">
       <img src="${logoImage}" alt="Logo" class="logo">
