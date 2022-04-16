@@ -1,6 +1,6 @@
 import Abstract from "./abstract";
 
-const createMembersListTemplate = () => `<div>members</div>`;
+const createMembersListTemplate = () => `<ul class="team__list members-list"></ul>`;
 
 export default class MembersList extends Abstract {
   getTemplate() {

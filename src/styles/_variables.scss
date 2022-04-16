@@ -7,3 +7,12 @@ $color-white: #fff;
 $color-dark-grey: #717171;
 $color-grey: #bbbbbb;
 $color-light-grey: #e5eaee;
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

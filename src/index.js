@@ -59,17 +59,7 @@ const renderApp = () => {
 };
 renderApp();
 
-const teamPresenter = new TeamPresenter(document.querySelector(".team"), membersModel);
+const teamPresenter = new TeamPresenter(teamComponent, membersModel, api);
 teamPresenter.init();
 
-api.loadMembers()
-  .then(res => {
-    return res.json();
-  })
-  .then(data => {
-    membersModel.setMembers('q', data.data.data);
-  })
-  .catch(error => {
-    membersModel.setMembers('q',[]);
-    console.error(error);
-  });
+

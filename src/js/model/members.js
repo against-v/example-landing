@@ -1,9 +1,13 @@
+import {UpdateType} from "@/js/constants";
+
 export default class Members {
 
   constructor() {
     this._observers = [];
     this._members = [];
-    this._isLoading = false;
+    this._lastMembers = [];
+    this._currentPage = 1;
+    this._totalPages = 1;
   }
 
   addObserver(observer) {
@@ -14,10 +18,20 @@ export default class Members {
     this._observers = this._observers.filter((existedObserver) => existedObserver !== observer);
   }
 
-  setMembers(updateType, members) {
-    console.log(updateType)
-    console.log(members)
-    this._members = members.slice();
+  setData(updateType, data) {
+    // switch (updateType) {
+    //   case UpdateType.INIT_LOAD:
+    //     this._members = data.data.slice();
+    //     break;
+    //   case UpdateType.LOAD:
+    //     this._members.concat(data.data);
+    //     this._lastMembers = data.data.slice();
+    //     break;
+    // }
+    this._lastMembers = data.data.slice();
+    this._currentPage = data.meta.pagination.current_page;
+    this._totalPages = data.meta.pagination.total_pages;
+
     this._notify(updateType);
   }
 
@@ -25,12 +39,16 @@ export default class Members {
     return this._members;
   }
 
-  setIsLoading(val) {
-    this._isLoading = val;
+  getLastMembers() {
+    return this._lastMembers;
   }
 
-  getIsLoading() {
-    return this._isLoading;
+  getCurrentPage() {
+    return this._currentPage;
+  }
+
+  getTotalPages() {
+    return this._totalPages;
   }
 
   _notify(event, payload) {
