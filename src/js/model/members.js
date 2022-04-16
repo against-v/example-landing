@@ -1,5 +1,3 @@
-import {UpdateType} from "@/js/constants";
-
 export default class Members {
 
   constructor() {
@@ -14,25 +12,13 @@ export default class Members {
     this._observers.push(observer);
   }
 
-  removeObserver(observer) {
-    this._observers = this._observers.filter((existedObserver) => existedObserver !== observer);
-  }
-
-  setData(updateType, data) {
-    // switch (updateType) {
-    //   case UpdateType.INIT_LOAD:
-    //     this._members = data.data.slice();
-    //     break;
-    //   case UpdateType.LOAD:
-    //     this._members.concat(data.data);
-    //     this._lastMembers = data.data.slice();
-    //     break;
-    // }
-    this._lastMembers = data.data.slice();
-    this._currentPage = data.meta.pagination.current_page;
-    this._totalPages = data.meta.pagination.total_pages;
-
-    this._notify(updateType);
+  setData(evtType, data) {
+    if (data) {
+      this._lastMembers = data.data.slice();
+      this._currentPage = data.meta.pagination.current_page;
+      this._totalPages = data.meta.pagination.total_pages;
+    }
+    this._notify(evtType);
   }
 
   getMembers() {
