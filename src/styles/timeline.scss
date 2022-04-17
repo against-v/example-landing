@@ -1,0 +1,70 @@
+.timeline {
+  position: relative;
+  line-height: 0;
+  margin-top: -40px;
+  margin-bottom: -160px;
+}
+.timeline__line {
+  width: 100%;
+}
+.timeline-point {
+  width: 3.5%;
+  background-image: url(../images/icons/checkpoint.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: absolute;
+  border-radius: 50%;
+  aspect-ratio: 1 / 1;
+  &:hover {
+    .timeline-point__img-container {
+      transform: translate(-50%, -50%) scale(1);
+    }
+  }
+}
+.timeline-point_1 {
+  top: 65%;
+  left: 20%;
+}
+.timeline-point_2 {
+  top: 57%;
+  left: 35%;
+}
+.timeline-point_3 {
+  top: 49%;
+  left: 43%;
+}
+.timeline-point_4 {
+  top: 45%;
+  left: 55%;
+}
+.timeline-point_5 {
+  top: 38%;
+  left: 70%;
+}
+.timeline-point_6 {
+  top: 32%;
+  left: 77%;
+}
+
+.timeline-point__img-container {
+  //display: none;
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  overflow: hidden;
+  z-index: 1;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  transition: transform 300ms ease-in-out;
+  border: 6px solid $color-white;
+  box-shadow: 0px 0px 0px 1px $color-grey;
+  img {
+    width: 100%;
+    object-fit: cover;
+  }
+}
+
+
