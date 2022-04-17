@@ -5,7 +5,9 @@ import photo1 from "@/images/timeline/1.jpg";
 const createTimelineTemplate = () => (
   `<section class="timeline-container">
     <div class="timeline">
-      <img class="timeline__line" src=${line} alt="Timeline">
+      <div class="timeline__line-conteiner">
+        <img class="timeline__line" src=${line} alt="Timeline">    
+      </div>
       <div class="timeline__point timeline-point timeline-point_1">
         <div class="timeline-point__img-container">
           <img src=${photo1} alt="Photo">

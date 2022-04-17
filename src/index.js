@@ -27,6 +27,7 @@ const teamComponent = new Team();
 const footerComponent = new Footer();
 
 const renderApp = () => {
+  headerComponent.init();
   render(root, headerComponent, RenderPosition.BEFOREEND);
   render(root, introComponent, RenderPosition.BEFOREEND);
   render(root, contentComponent, RenderPosition.BEFOREEND);
