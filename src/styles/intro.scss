@@ -68,7 +68,7 @@
   width: 50%;
 }
 
-.news {
+.news-preview {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -81,12 +81,12 @@
   transition: background-color 200ms linear;
   &:hover {
     background-color: $color-black;
-    .news__text {
+    .news-preview__text {
       color: $color-white;
     }
   }
 }
-.news__date {
+.news-preview__date {
   font-size: 15px;
   line-height: 1;
   font-weight: 700;
@@ -106,7 +106,7 @@
     height: 29px;
   }
 }
-.news__title {
+.news-preview__title {
   font-size: 20px;
   font-weight: 700;
   color: $color-red;
@@ -117,7 +117,7 @@
   text-overflow: ellipsis;
   overflow: hidden;
 }
-.news__text {
+.news-preview__text {
   font-size: 15px;
   color: $color-black;
   margin-top: 8px;
@@ -128,7 +128,7 @@
   overflow: hidden;
 }
 
-.article {
+.article-preview {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -139,7 +139,7 @@
   padding-right: 50px;
   padding-bottom: 50px;
 }
-.article__date {
+.article-preview__date {
   font-size: 50px;
   font-weight: 700;
   color: $color-black;
@@ -148,7 +148,7 @@
   margin-bottom: 0;
 
 }
-.article__title {
+.article-preview__title {
   font-size: 30px;
   font-weight: 700;
   color: $color-red;
@@ -159,7 +159,7 @@
   margin-bottom: 0;
   margin-top: 0;
 }
-.article__subtitle {
+.article-preview__subtitle {
   font-size: 20px;
   font-weight: 700;
   text-transform: uppercase;
@@ -170,7 +170,7 @@
   margin-bottom: 0;
   margin-top: 0;
 }
-.article__text {
+.article-preview__text {
   color: $color-black;
   font-size: 15px;
   margin-bottom: 0;
@@ -183,12 +183,12 @@
 }
 
 @media screen and (max-width: 1200px) {
-  .article {
+  .article-preview {
     padding-right: 26px;
     padding-bottom: 26px;
     padding-left: 26px;
   }
-  .news {
+  .news-preview {
     padding-right: 16px;
     padding-bottom: 16px;
     padding-left: 16px;
@@ -204,29 +204,29 @@
   .intro-container__article {
     width: 100%;
   }
-  .news {
+  .news-preview {
     height: 180px;
   }
-  .article {
+  .article-preview {
     padding: 16px;
     text-align: center;
   }
-  .article__date {
+  .article-preview__date {
     font-size: 40px;
   }
-  .article__title {
+  .article-preview__title {
     white-space: normal;
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 2;
   }
-  .article__subtitle {
+  .article-preview__subtitle {
     white-space: normal;
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 2;
   }
-  .article__text {
+  .article-preview__text {
     max-width: 100%;
   }
   .intro__title {
@@ -248,7 +248,7 @@
   .news-list__item {
     width: 100%;
     &:first-child {
-      .news {
+      .news-preview {
         height: 230px;
       }
     }

@@ -1,17 +1,15 @@
 import Abstract from "./abstract";
-import twitterIcon from '@/images/icons/twitter.svg';
-import facebookIcon from '@/images/icons/facebook.svg';
 
 const SM_LINKS = [
   {
     url: '#',
     title: 'Twitter',
-    icon: twitterIcon
+    icon: 'twitter'
   },
   {
     url: '#',
     title: 'Facebook',
-    icon: facebookIcon
+    icon: 'facebook'
   },
 ];
 
@@ -40,7 +38,11 @@ const createHeaderTemplate = () => (
     <ul class="footer__sm sm">
       ${SM_LINKS.map(item => (
         `<li class="sm__item">
-          <a href=${item.url} class="sm__link" title=${item.title}><img src=${item.icon} alt=${item.title}></a>
+          <a href=${item.url} class="sm__link" title=${item.title}>
+            <svg class="inline-svg-icon">
+              <use xlink:href="#${item.icon}"></use>
+            </svg>
+          </a>
         </li>`
       )).join("")}
     </ul>

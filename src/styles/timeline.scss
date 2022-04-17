@@ -183,7 +183,7 @@
     left: 79%;
     &:hover {
       .timeline-point__img-container {
-        transform: translate(-65%, -50%) scale(1);
+        transform: translate(-76%, -50%) scale(1);
       }
     }
   }
@@ -196,7 +196,4 @@
       }
     }
   }
-}
-@media screen and (max-width: 460px) {
-
 }
