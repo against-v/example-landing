@@ -6,7 +6,6 @@ import Footer from "@/js/views/footer";
 import Team from "@/js/views/team";
 import Content from "@/js/views/content";
 import Timeline from "@/js/views/timeline";
-
 import MembersModel from "@/js/model/members";
 import TeamPresenter from "@/js/presenter/team";
 import Api from "@/js/api";

@@ -1,5 +1,4 @@
 export default class Members {
-
   constructor() {
     this._observers = [];
     this._members = [];
