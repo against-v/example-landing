@@ -28,10 +28,6 @@ const footerComponent = new Footer();
 
 const teamPresenter = new TeamPresenter(teamComponent, membersModel, api);
 
-teamPresenter.init();
-headerComponent.init();
-introComponent.init();
-
 render(root, spriteComponent, RenderPosition.BEFOREEND);
 render(root, headerComponent, RenderPosition.BEFOREEND);
 render(root, introComponent, RenderPosition.BEFOREEND);
@@ -39,6 +35,10 @@ render(root, contentComponent, RenderPosition.BEFOREEND);
 render(root, timelineComponent, RenderPosition.BEFOREEND);
 render(root, teamComponent, RenderPosition.BEFOREEND);
 render(root, footerComponent, RenderPosition.BEFOREEND);
+
+teamPresenter.init();
+headerComponent.init();
+introComponent.init();
 
 
 

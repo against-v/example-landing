@@ -105,7 +105,7 @@ export default class Intro extends Abstract {
   _linkClickHandler(evt) {
     evt.preventDefault();
     const article = new Article(this._container);
-    article.init();
     render(this._container, article, RenderPosition.BEFOREEND);
+    article.init();
   }
 }

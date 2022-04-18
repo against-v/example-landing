@@ -31,6 +31,7 @@
   align-items: center;
   max-width: 450px;
   transform: translateX(100px);
+  z-index: 1;
   img {
     width: 100%;
   }
@@ -123,10 +124,97 @@
   margin-top: 50px;
 }
 
+.article__slider {
+  margin: 20px 0;
+}
+
+.slider {
+  width: calc(100% + 400px);
+  transform: translateX(-200px);
+  line-height: 0;
+  position: relative;
+  img {
+    width: 100%;
+  }
+}
+
+.slider__button-prev {
+  width: 40px;
+  height: 40px;
+  border: none;
+  background: transparent;
+  padding: 0;
+  overflow: hidden;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 120px;
+  z-index: 1;
+  &::before {
+    content: "";
+    display: block;
+    width: 20px;
+    height: 20px;
+    border-top: 6px solid $color-black;
+    border-right: 6px solid $color-black;
+    transform: rotate(225deg);
+  }
+  &[disabled]::before {
+    border-color: $color-grey;
+  }
+}
+
+.slider__button-next {
+  width: 40px;
+  height: 40px;
+  border: none;
+  background: transparent;
+  padding: 0;
+  overflow: hidden;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 120px;
+  z-index: 1;
+  &::before {
+    content: "";
+    display: block;
+    width: 20px;
+    height: 20px;
+    border-top: 6px solid $color-black;
+    border-right: 6px solid $color-black;
+    transform: rotate(45deg);
+  }
+  &[disabled]::before {
+    border-color: $color-grey;
+  }
+}
+
+.slider__slide {
+  opacity: .5;
+  transition: opacity 200ms linear;
+}
+.slider__slide_active {
+  opacity: 1;
+}
+
+
 @media screen and (max-width: 1200px) {
   .article {
     padding-left: 100px;
     padding-right: 100px;
+  }
+  .slider {
+    width: calc(100% + 200px);
+    transform: translateX(-100px);
   }
 }
 
@@ -140,6 +228,10 @@
     padding-left: 60px;
     padding-right: 60px;
     padding-bottom: 60px;
+  }
+  .slider {
+    width: calc(100% + 120px);
+    transform: translateX(-60px);
   }
   .article__header {
     padding-bottom: 12px;

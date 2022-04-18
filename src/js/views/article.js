@@ -1,6 +1,7 @@
 import Abstract from "./abstract";
 import {remove} from "@/js/utils/render";
 import logoImage from '@/images/logo.png';
+import {tns} from "tiny-slider";
 
 const BUTTONS = [
   {
@@ -31,6 +32,7 @@ const ARTICLE = {
     },
     {
       type: "slider",
+      id: "first-slider",
       value: [
         "https://dummyimage.com/600x400/362dd6/000000.jpg",
         "https://dummyimage.com/600x400/d4a52f/000000.jpg",
@@ -72,7 +74,17 @@ const createArticleTemplate = (article) => (
         <div class="article__content">
           ${article.content.map(item => {
             if (item.type === "slider") {
-              return `SLIDER`;
+              return (
+                `<div class="article__slider slider">
+                  <button class="slider__button-prev js-slider-${item.id}-button-prev"></button>
+                  <button class="slider__button-next js-slider-${item.id}-button-next"></button>
+                  <div class="js-slider" id=${item.id}>
+                    ${item.value.map((slide, i) => (
+                      `<div class="slider__slide ${i === 0 && "slider__slide_active"}"><img src=${slide} alt=${slide}></div>`
+                    )).join("")}
+                  </div>
+                </div>`
+              );
             }
             return `${item.value}`;
           }).join("")}
@@ -86,6 +98,8 @@ export default class Article extends Abstract {
     super();
     this._container = container;
     this._buttons = [];
+    this._sliderContainers = [];
+    this._sliders = [];
     this._buttonCloseClickHandler = this._buttonCloseClickHandler.bind(this);
     this._escKeydownHandler = this._escKeydownHandler.bind(this);
   }
@@ -94,6 +108,22 @@ export default class Article extends Abstract {
     this._hideBodyScroll();
     this._buttons = this.getElement().querySelectorAll(".js-button");
     this._buttons.forEach(button => button.addEventListener("click", this._buttonCloseClickHandler));
+    this._sliderContainers = this.getElement().querySelectorAll(".js-slider");
+    this._sliderContainers.forEach(slider => {
+      this._sliders.push(tns({
+        "container": `#${slider.id}`,
+        "items": 2,
+        "center": true,
+        "loop": false,
+        "swipeAngle": false,
+        "speed": 400,
+        "nav": false,
+        "prevButton": `.js-slider-${slider.id}-button-prev`,
+        "nextButton": `.js-slider-${slider.id}-button-next`,
+        "gutter": 20
+      }));
+    });
+    this._sliders.forEach(slider => slider.events.on('indexChanged', this._sliderIndexChangeHandler));
     document.addEventListener("keydown", this._escKeydownHandler);
   }
 
@@ -121,7 +151,13 @@ export default class Article extends Abstract {
     document.body.style.overflow = "";
     document.body.style.paddingRight = "";
     document.removeEventListener("keydown", this._escKeydownHandler);
+    this._sliders.forEach(slider => slider.destroy());
     remove(this);
+  }
+
+  _sliderIndexChangeHandler(info) {
+    info.slideItems[info.indexCached].classList.remove('slider__slide_active');
+    info.slideItems[info.index].classList.add('slider__slide_active');
   }
 
   _escKeydownHandler(evt) {
