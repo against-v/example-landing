@@ -10,7 +10,7 @@ module.exports = merge(common, {
   devtool: false,
   output: {
     path: paths.build,
-    publicPath: '/',
+    publicPath: 'https://against-v.github.io/example-landing/',
     filename: 'js/[name].[contenthash].bundle.js',
   },
   module: {
