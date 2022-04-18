@@ -112,7 +112,7 @@ export default class Article extends Abstract {
     this._sliderContainers.forEach(slider => {
       this._sliders.push(tns({
         "container": `#${slider.id}`,
-        "items": 2,
+        "items": 1,
         "center": true,
         "loop": false,
         "swipeAngle": false,
@@ -120,7 +120,12 @@ export default class Article extends Abstract {
         "nav": false,
         "prevButton": `.js-slider-${slider.id}-button-prev`,
         "nextButton": `.js-slider-${slider.id}-button-next`,
-        "gutter": 20
+        "gutter": 20,
+        "responsive": {
+          460: {
+            "items": 2
+          }
+        }
       }));
     });
     this._sliders.forEach(slider => slider.events.on('indexChanged', this._sliderIndexChangeHandler));
